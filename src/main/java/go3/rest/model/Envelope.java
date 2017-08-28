@@ -1,5 +1,9 @@
 package go3.rest.model;
 
+/**
+ * Created by gouthamvidyapradhan on 27/08/2017.
+ * Message Envelope Java POJO
+ */
 public class Envelope {
     private String number;
     private String sendTo;

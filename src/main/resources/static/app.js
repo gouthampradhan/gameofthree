@@ -1,3 +1,7 @@
+/**
+ * Created by gouthamvidyapradhan on 27/08/2017.
+ * app.js
+ */
 var stompClient = null;
 var connected = null;
 

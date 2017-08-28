@@ -2,6 +2,7 @@ package go3.rest.model;
 
 /**
  * Created by gouthamvidyapradhan on 28/08/2017.
+ * UserProfile Java POJO
  */
 public class UserProfile {
     private String userName;

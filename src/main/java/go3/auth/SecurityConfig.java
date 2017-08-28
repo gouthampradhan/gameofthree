@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 /**
  * Created by gouthamvidyapradhan on 27/08/2017.
+ * Security configuration to handle login authentication. Creates two in-memory authenticated users
  */
 @Configuration
 @EnableWebSecurity

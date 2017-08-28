@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by gouthamvidyapradhan on 27/08/2017.
+ * REST end-point configuration
  */
 @RestController
 @RequestMapping("/app/")
