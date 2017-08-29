@@ -1,14 +1,14 @@
 # Game of Three
 
 Game of three is a two player game where the players exchange a whole number between them.
-To begin with a player_1 starts by sending a random whole number to player_2. The player_2 either adds [1, 0 or -1]
+To begin with, the player_1 starts by sending a random whole number to player_2. The player_2 adds any of [1, 0 or -1]
 to the whole number inorder to get to a number which is divisible by 3 and the resulting number is passed back to the
-player_1. The player_1 repeats the same steps and send the number back to player_2. This will continue until either of
+player_1. The player_1 repeats the same steps and sends the number back to player_2. This will continue until either of
 the player gets to number 1 either by adding any of [1, 0 or -1]. The first player to reach 1 will be considered
 as the winner.
 
-Goal of this project is to demonstrate how we can use Spring STOMP over Websockets to exchange private messages
-between user.
+Goal of this project is to demonstrate how we can use Spring STOMP over Web-sockets to exchange private messages
+between users.
 
 ## Getting Started
 
@@ -72,9 +72,10 @@ The project has pre-configured, in-memory user_name and password set as shown be
 | admin | password |
 | user | password |
 
-1. Use the login credentials admin/password to login as player_1
-2. To simulate a two player please open **ANOTHER** browser window and **NOT** another tab
-3. Now in the other browser window again hit the above login url and now login with the credentials user/password
+1. Use the login credentials admin/password to login as player_1.
+2. To simulate a two player please open **ANOTHER** browser window and **NOT** another tab.
+3. Now in the other browser window again hit the above login url and now login with the credentials user/password to
+simulate player_2.
 4. admin is configured to have ROLE_ADMIN privilege and only he can initiate the game and the 'Play' button
  is available only to admin user.
 5. Click on Play and you can see the game results on the screen.
