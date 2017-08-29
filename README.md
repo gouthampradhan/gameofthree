@@ -73,7 +73,7 @@ The project has pre-configured, in-memory user_name and password set as shown be
 | user | password |
 
 1. Use the login credentials admin/password to login as player_1.
-2. To simulate a two player please open **ANOTHER** browser window and **NOT** another tab.
+2. To simulate a two player game please open **ANOTHER** browser window and **NOT** another tab.
 3. Now in the other browser window again hit the above login url and now login with the credentials user/password to
 simulate player_2.
 4. admin is configured to have ROLE_ADMIN privilege and only he can initiate the game and the 'Play' button
