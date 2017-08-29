@@ -67,21 +67,15 @@ You should see a login page prompting for user and password.
 
 The project has pre-configured, in-memory user_name and password set as shown below.
 
-```
-http://localhost:8080/login
-
-```
-
 | User | Password |
 | --- | --- |
 | admin | password |
 | user | password |
 
 1. Use the login credentials admin/password to login as player_1
-2. To simulate two player please open ANOTHER browser window and NOT another tab
+2. To simulate a two player please open **ANOTHER** browser window and **NOT** another tab
 3. Now in the other browser window again hit the above login url and now login with the credentials user/password
 4. admin is configured to have ROLE_ADMIN privilege and only he can initiate the game and the 'Play' button
  is available only to admin user.
 5. Click on Play and you can see the game results on the screen.
-
 
