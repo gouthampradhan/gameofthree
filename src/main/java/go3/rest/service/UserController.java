@@ -18,17 +18,13 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public UserProfile getUser(Authentication authentication) {
         UserDetails userDetails = (UserDetails)authentication.getPrincipal();
-        System.out.println("printing authority");
         UserProfile userProfile = new UserProfile();
         userProfile.setUserName(authentication.getName());
         userDetails.getAuthorities().stream().forEach(x -> {
-            System.out.println(x.getAuthority());
             if(x.getAuthority().equals("ROLE_ADMIN")) {
                 userProfile.setAdmin(true);
             }
         });
-        System.out.println(userProfile.getUserName());
-        System.out.println(userProfile.isAdmin());
         return userProfile;
     }
 }

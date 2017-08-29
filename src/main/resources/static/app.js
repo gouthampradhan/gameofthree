@@ -23,14 +23,21 @@ function connect() {
         stompClient.connect({}, function (frame) {
             setConnected(true);
             console.log('Connected: ' + frame);
-            stompClient.subscribe('/user/queue/greetings', function (greeting) {
-                var number = parseInt(JSON.parse(greeting.body).content);
+            stompClient.subscribe('/user/queue/message', function (message) {
+                var number = parseInt(JSON.parse(message.body).content);
                 var received = "Number received: ";
                 var sent = "Number sent: ";
                 showMessage(received.concat(number));
                 if(number === 2 || number === 3 || number === 4){
-                   showMessage("You won !");
-                   disconnect();
+                    if(number === 2){
+                        showMessage("2 + 1 = 3; 3 / 3 = 1");
+                    } else if(number === 3){
+                        showMessage("3 / 3 == 1");
+                    } else {
+                        showMessage("4 - 1 = 3; 3 / 3 = 1");
+                    }
+                    showMessage("You won !");
+                    reset(json.admin === true);
                 } else {
                     if(number % 3 === 0){
                         number = number / 3;
@@ -43,7 +50,7 @@ function connect() {
                     showMessage(sent.concat(number));
                     if(number === 2 || number === 3 || number === 4){
                         showMessage("You lost !");
-                        disconnect();
+                        reset(json.admin === true);
                     }
                 }
             });
@@ -52,17 +59,21 @@ function connect() {
 }
 
 function play() {
+    document.getElementById("play").disabled = true;
     var json = userProfile();
     var sendTo;
-    var number = Math.floor((Math.random() * 100) + 2);
-    var sent = "Number sent: "
-    showMessage(sent.concat(number));
-    send(number, "user");
-    if(number === 2 || number === 3 || number === 4){
-        showMessage("You lost !");
-        disconnect();
+    var number = Math.floor((Math.random() * 100) + 1);
+    if(number === 1){
+        showMessage("You won !");
+    } else{
+        var sent = "Number sent: "
+        showMessage(sent.concat(number));
+        send(number, "user");
+        if(number === 2 || number === 3 || number === 4){
+            showMessage("You lost !");
+            reset(true);
+        }
     }
-    //stompClient.send("/app/hello", {}, JSON.stringify({'number': number, 'sendTo' : sendTo}));
 }
 
 function send(number, sendTo){
@@ -70,7 +81,7 @@ function send(number, sendTo){
 }
 
 function showMessage(message) {
-    $("#greetings").append("<tr><td>" + message + "</td></tr>");
+    $("#message").append("<tr><td>" + message + "</td></tr>");
 }
 
 function userProfile(){
@@ -81,12 +92,15 @@ function userProfile(){
     return JSON.parse(xhttp.responseText);
 }
 
-function disconnect() {
-    if (stompClient != null) {
+function reset(isAdmin) {
+    if(isAdmin){
+        document.getElementById("play").disabled = false
+    }
+    /*if (stompClient != null) {
         stompClient.disconnect();
     }
     setConnected(false);
-    console.log("Disconnected");
+    console.log("Disconnected");*/
 }
 
 $(function () {

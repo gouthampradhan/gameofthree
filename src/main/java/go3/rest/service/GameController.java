@@ -19,10 +19,10 @@ public class GameController {
 
     @MessageMapping("/go3")
     public void greeting(Envelope envelope) throws Exception {
-        Thread.sleep(1000); // simulated delay
+        Thread.sleep(500);
         Message message = new Message(envelope.getNumber());
         //send message to unique user
-        simpTemplate.convertAndSendToUser(envelope.getSendTo(), "/queue/greetings", message);
+        simpTemplate.convertAndSendToUser(envelope.getSendTo(), "/queue/message", message);
     }
 
 }
