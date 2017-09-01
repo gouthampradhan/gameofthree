@@ -20,7 +20,7 @@ This project is build using the below tools. Please ensure you have the below pr
 
 ```
 1. JDK 1.8 or above
-2. Gradle 4.1
+2. Gradle 4.1 or above
 ```
 
 ### Installing
@@ -31,6 +31,15 @@ git clone https://github.com/gouthampradhan/gameofthree.git
 
 ```
 If you are using a IDE for example Intellij then, import project and choose build.gradle file.
+
+### Testing
+
+Use the below command to run automated test suite
+
+```
+./gradlew test
+
+```
 
 ### Running
 
