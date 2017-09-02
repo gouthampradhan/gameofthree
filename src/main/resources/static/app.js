@@ -27,8 +27,8 @@ function connect() {
                 var number = parseInt(JSON.parse(message.body).content);
                 var received = "Number received: ";
                 var sent = "Number sent: ";
-                showMessage(received.concat(number));
                 if(number === 2 || number === 3 || number === 4){
+                    showMessage(received.concat(number));
                     if(number === 2){
                         showMessage("2 + 1 = 3; 3 / 3 = 1");
                     } else if(number === 3){
@@ -38,7 +38,11 @@ function connect() {
                     }
                     showMessage("You won !");
                     reset(json.admin === true);
-                } else {
+                } else if(number === -1){
+                    showMessage("You lost !");
+                }
+                 else {
+                    showMessage(received.concat(number));
                     if(number % 3 === 0){
                         number = number / 3;
                     } else if((number + 1) % 3 === 0){
@@ -62,9 +66,11 @@ function play() {
     document.getElementById("play").disabled = true;
     var json = userProfile();
     var sendTo;
-    var number = Math.floor((Math.random() * 100) + 1);
+    var number = Math.floor((Math.random() * 1000) + 1);
+    showMessage("Game started with random number: " + number);
     if(number === 1){
         showMessage("You won !");
+        send(-1, "user");
     } else{
         var sent = "Number sent: "
         showMessage(sent.concat(number));
@@ -96,11 +102,6 @@ function reset(isAdmin) {
     if(isAdmin){
         document.getElementById("play").disabled = false
     }
-    /*if (stompClient != null) {
-        stompClient.disconnect();
-    }
-    setConnected(false);
-    console.log("Disconnected");*/
 }
 
 $(function () {
